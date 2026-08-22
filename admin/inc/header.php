@@ -16,6 +16,7 @@ require_once __DIR__ . '/../../config/helpers.php';
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="icon" type="image/png" href="../img/favicon.png">
 <link rel="stylesheet" href="css/admin.css">
 </head>
 <body>
