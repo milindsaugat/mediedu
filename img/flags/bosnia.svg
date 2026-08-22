@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" width="640" height="320">
+  <rect width="640" height="320" fill="#002395"/>
+  <polygon points="170,0 490,0 490,320" fill="#fecb00"/>
+  <!-- Stars -->
+  <g fill="#ffffff">
+    <polygon points="150,15 156,33 175,33 160,45 165,63 150,51 135,63 140,45 125,33 144,33" transform="translate(0, 0) scale(0.6)"/>
+    <polygon points="150,15 156,33 175,33 160,45 165,63 150,51 135,63 140,45 125,33 144,33" transform="translate(35, 35) scale(0.6)"/>
+    <polygon points="150,15 156,33 175,33 160,45 165,63 150,51 135,63 140,45 125,33 144,33" transform="translate(70, 70) scale(0.6)"/>
+    <polygon points="150,15 156,33 175,33 160,45 165,63 150,51 135,63 140,45 125,33 144,33" transform="translate(105, 105) scale(0.6)"/>
+    <polygon points="150,15 156,33 175,33 160,45 165,63 150,51 135,63 140,45 125,33 144,33" transform="translate(140, 140) scale(0.6)"/>
+    <polygon points="150,15 156,33 175,33 160,45 165,63 150,51 135,63 140,45 125,33 144,33" transform="translate(175, 175) scale(0.6)"/>
+    <polygon points="150,15 156,33 175,33 160,45 165,63 150,51 135,63 140,45 125,33 144,33" transform="translate(210, 210) scale(0.6)"/>
+    <polygon points="150,15 156,33 175,33 160,45 165,63 150,51 135,63 140,45 125,33 144,33" transform="translate(245, 245) scale(0.6)"/>
+  </g>
+</svg>

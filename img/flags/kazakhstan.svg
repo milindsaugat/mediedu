@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" width="640" height="320">
+  <rect width="640" height="320" fill="#00afca"/>
+  <!-- Gold Sun & Steppe Eagle -->
+  <g fill="#ffe100" transform="translate(320, 140)">
+    <circle cx="0" cy="0" r="42"/>
+    <!-- Eagle Wings -->
+    <path d="M-80,45 Q0,10 80,45 Q50,70 0,60 Q-50,70 -80,45 Z"/>
+  </g>
+  <!-- Vertical ornament pattern -->
+  <path d="M20,0 L20,320 M35,0 L35,320" stroke="#ffe100" stroke-width="8" stroke-dasharray="14,14"/>
+</svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" width="640" height="480">
+  <g fill-rule="evenodd">
+    <path fill="#c6363c" d="M0 0h640v160H0z"/>
+    <path fill="#0c4076" d="M0 160h640v160H0z"/>
+    <path fill="#ffffff" d="M0 320h640v160H0z"/>
+    <!-- Small Serbian Coat of Arms simplified overlay -->
+    <g transform="translate(180, 100) scale(0.65)">
+      <path fill="#c6363c" stroke="#ffffff" stroke-width="4" d="M30,20 C30,20 170,20 170,20 C170,160 100,220 100,220 C100,220 30,160 30,20 Z"/>
+      <path fill="#ffd700" d="M70,50 L130,50 L130,70 L70,70 Z M90,30 L110,30 L110,90 L90,90 Z"/>
+      <circle cx="100" cy="120" r="28" fill="#ffffff"/>
+      <path fill="#c6363c" d="M96,95 h8 v50 h-8 z M75,116 h50 v8 h-50 z"/>
+    </g>
+  </g>
+</svg>

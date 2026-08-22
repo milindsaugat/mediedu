@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 384" width="640" height="384">
+  <rect width="640" height="384" fill="#e8112d"/>
+  <!-- Yellow Sun and Tunduk -->
+  <circle cx="320" cy="192" r="70" fill="#ffe100"/>
+  <circle cx="320" cy="192" r="50" fill="#e8112d"/>
+  <circle cx="320" cy="192" r="42" fill="#ffe100"/>
+  <path d="M290,192 Q320,170 350,192 M290,192 Q320,214 350,192 M320,162 Q300,192 320,222 M320,162 Q340,192 320,222" stroke="#e8112d" stroke-width="4" fill="none"/>
+</svg>

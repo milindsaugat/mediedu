@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" width="640" height="320">
+  <rect width="640" height="100" y="0" fill="#0099b5"/>
+  <rect width="640" height="10" y="100" fill="#ce1126"/>
+  <rect width="640" height="100" y="110" fill="#ffffff"/>
+  <rect width="640" height="10" y="210" fill="#ce1126"/>
+  <rect width="640" height="100" y="220" fill="#1eb53a"/>
+  <!-- Crescent & Stars -->
+  <g fill="#ffffff" transform="translate(60, 20)">
+    <circle cx="40" cy="30" r="22"/>
+    <circle cx="47" cy="30" r="18" fill="#0099b5"/>
+    <!-- Small Stars -->
+    <circle cx="80" cy="20" r="3"/>
+    <circle cx="95" cy="20" r="3"/>
+    <circle cx="110" cy="20" r="3"/>
+    <circle cx="80" cy="32" r="3"/>
+    <circle cx="95" cy="32" r="3"/>
+    <circle cx="110" cy="32" r="3"/>
+    <circle cx="80" cy="44" r="3"/>
+    <circle cx="95" cy="44" r="3"/>
+    <circle cx="110" cy="44" r="3"/>
+  </g>
+</svg>
