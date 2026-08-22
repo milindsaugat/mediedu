@@ -21,35 +21,42 @@ MedicEdu Global is a modern medical education consultancy website for Indian stu
 ## Codebase Structure
 ```
 medicedu-global/
-├── index.html              # Homepage with 8 full sections, hero slider, accreditation marquee
-├── about.html              # About page with 8 sections, mission, ethics pillars, milestones, flag marquee
-├── countries.html          # Study Destinations hub with 8 country cards & comparison matrix
-├── admission.html          # Step-by-step 6-stage roadmap, checklist & flag marquee
-├── contact.html            # Free consultation & contact page with lead form
-├── countries/
-│   ├── russia.html         # Dedicated MBBS in Russia subpage with fee tables & universities
-│   ├── serbia.html         # Dedicated MBBS in Serbia subpage
-│   ├── romania.html        # Dedicated MBBS in Romania subpage
-│   ├── bosnia.html         # Dedicated MBBS in Bosnia subpage
-│   ├── armenia.html        # Dedicated MBBS in Armenia subpage
-│   ├── kyrgyzstan.html     # Dedicated MBBS in Kyrgyzstan subpage
-│   ├── kazakhstan.html     # Dedicated MBBS in Kazakhstan subpage
-│   └── uzbekistan.html     # Dedicated MBBS in Uzbekistan subpage
-├── css/
-│   └── style.css           # Vanilla CSS design system with HSL tokens, mega dropdown, marquee & cards
-├── js/
-│   └── main.js             # GSAP + ScrollTrigger with clearProps, hero slider, offcanvas drawer & FAQ
-├── img/
-│   ├── logo.png            # MedicEdu Global Official Logo
-│   ├── hero-1.jpg, hero-2.jpg, hero-3.jpg # Doctor hero slider visuals
-│   ├── about.jpg           # About section visual
-│   ├── bosnia.jpg, Bosnia & Herzegovina.webp, Serbia.webp, Romania.webp, Russia.webp, Armenia.webp, kg.webp, Kazakhstan.webp, uz.webp
-│   └── flags/              # SVG country flags for Russia, Serbia, Bosnia, Armenia, Kyrgyzstan, Kazakhstan, Uzbekistan, Romania
-├── design.md               # Design guidelines & color palette tokens
-└── agent.md                # Project architecture & context summary
+├── admin/                      # PHP Admin Panel Portal
+│   ├── index.php               # Admin Login
+│   ├── dashboard.php           # Analytics & KPI Overview
+│   ├── leads.php               # Student Inquiries CRM (Search, Filter, Export CSV, Bulk Status)
+│   ├── lead-view.php           # Single Inquiry Detail & Counselor Follow-up Notes
+│   ├── countries.php           # 8 Study Destinations Manager
+│   ├── country-edit.php        # Country Details & Fee Highlight Editor
+│   ├── universities.php        # Medical Universities & Fee Structure Matrix Editor
+│   ├── settings.php            # Site Settings (Phone, WhatsApp, Email, Session Year)
+│   ├── profile.php             # Admin Account & Password Change
+│   ├── logout.php              # Session Logout
+│   ├── inc/                    # Header, Sidebar, Footer, Auth Middleware
+│   └── css/admin.css           # Modern SaaS Dashboard Stylesheet
+├── config/
+│   ├── db.php                  # PDO MySQL Connection
+│   └── helpers.php             # Sanitization, CSRF, Flash Messages & Utilities
+├── database/
+│   ├── schema.sql              # Complete MySQL Database Schema & Seed Data
+│   └── install.php             # 1-Click Visual Database Setup Wizard
+├── api/
+│   └── submit-lead.php         # Real-time AJAX Lead Handler for Website Forms
+├── index.html, about.html, countries.html, admission.html, contact.html, 404.html
+├── countries/*.html            # 8 Standardized Country Detail Pages
+├── css/style.css, js/main.js, img/
+├── .htaccess, vercel.json, netlify.toml, _redirects
+├── design.md, README.md, agent.md
 ```
 
+## Admin Panel Credentials
+- **URL:** `/admin/`
+- **Default Email:** `tarunrockthakur@gmail.com`
+- **Default Password:** `Admin@2026!`
+- **Database Installer:** `/database/install.php` (or import `database/schema.sql` via phpMyAdmin)
+
 ## Key Technical Features
+- **PHP & MySQL Admin Panel:** Full CRM for student inquiry management, country fee matrices, and site settings.
 - **GSAP ScrollTrigger Animation:** Uses `clearProps: "all"` and `ScrollTrigger.refresh()` on window load so sections are never hidden or blank.
 - **Dual-Track Infinite Marquee:** Seamless CSS `@keyframes` transformation with zero text clipping or line wrapping issues.
 - **Button Styling:** Standalone `Contact Us` link removed. Primary CTA is **`Free Consultation`** with `#0A294D` background and white text.

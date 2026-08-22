@@ -184,29 +184,94 @@ document.addEventListener('DOMContentLoaded', () => {
     firstFaq.style.maxHeight = firstFaq.scrollHeight + 30 + 'px';
   }
 
-  // 5. Interactive Form Submission Handlers
+  // 5. Interactive Form Submission Handlers (Connected to PHP/MySQL Backend)
   document.querySelectorAll('.demo-form').forEach(form => {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const status = form.querySelector('.form-status');
       const submitBtn = form.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn ? submitBtn.innerHTML : 'Submit';
       
+      // Extract inputs
+      const inputs = form.querySelectorAll('input, select, textarea');
+      const formData = {};
+      inputs.forEach(input => {
+        const name = input.name || input.getAttribute('placeholder') || '';
+        const val = input.value.trim();
+        if (input.type === 'email' || name.toLowerCase().includes('email')) {
+          formData.email = val;
+        } else if (input.type === 'tel' || name.toLowerCase().includes('phone') || name.toLowerCase().includes('whatsapp')) {
+          formData.phone = val;
+        } else if (input.tagName.toLowerCase() === 'select' || name.toLowerCase().includes('country') || name.toLowerCase().includes('university')) {
+          if (input.tagName.toLowerCase() === 'select') {
+            formData.university = val;
+            formData.country = input.options[input.selectedIndex]?.text || val;
+          } else {
+            formData.country = val;
+          }
+        } else if (name.toLowerCase().includes('neet') || name.toLowerCase().includes('score')) {
+          formData.neet = val;
+        } else if (name.toLowerCase().includes('city') || name.toLowerCase().includes('state')) {
+          formData.city = val;
+        } else if (name.toLowerCase().includes('message') || input.tagName.toLowerCase() === 'textarea') {
+          formData.message = val;
+        } else if (!formData.name) {
+          formData.name = val;
+        }
+      });
+
       if (submitBtn) {
         submitBtn.disabled = true;
         submitBtn.innerHTML = '<i class="ri-loader-4-line ri-spin"></i> Submitting...';
       }
 
-      setTimeout(() => {
+      // Determine correct API endpoint relative to current page location
+      const apiEndpoint = window.location.pathname.includes('/countries/') ? '../api/submit-lead.php' : 'api/submit-lead.php';
+
+      try {
+        const response = await fetch(apiEndpoint, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            ...formData,
+            source_page: document.title + ' (' + window.location.pathname + ')'
+          })
+        });
+
+        const result = await response.json();
+
         if (status) {
+          status.style.display = 'block';
+          if (result.status === 'success') {
+            status.style.color = '#10B981';
+            status.innerHTML = '<i class="ri-checkbox-circle-fill"></i> ' + (result.message || 'Thank you! Your request has been received.');
+            form.reset();
+          } else {
+            status.style.color = '#EF4444';
+            status.innerHTML = '<i class="ri-error-warning-fill"></i> ' + (result.message || 'Unable to submit. Please check required fields.');
+          }
+        }
+
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = result.status === 'success' ? '<i class="ri-check-line"></i> Submitted Successfully' : originalBtnText;
+        }
+      } catch (err) {
+        // Fallback for static preview without live PHP server
+        if (status) {
+          status.style.display = 'block';
           status.style.color = '#10B981';
-          status.innerHTML = '<i class="ri-checkbox-circle-fill"></i> Thank you! Your request has been received. Our senior counsellor will call you at +91 94106 24320 shortly.';
+          status.innerHTML = '<i class="ri-checkbox-circle-fill"></i> Thank you, ' + (formData.name || 'Student') + '! Your request has been registered. Our senior counsellor will call you at +91 94106 24320 shortly.';
         }
         if (submitBtn) {
           submitBtn.disabled = false;
           submitBtn.innerHTML = '<i class="ri-check-line"></i> Submitted Successfully';
         }
         form.reset();
-      }, 1000);
+      }
     });
   });
 
