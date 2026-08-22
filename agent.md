@@ -53,3 +53,4 @@ medicedu-global/
 - **GSAP ScrollTrigger Animation:** Uses `clearProps: "all"` and `ScrollTrigger.refresh()` on window load so sections are never hidden or blank.
 - **Dual-Track Infinite Marquee:** Seamless CSS `@keyframes` transformation with zero text clipping or line wrapping issues.
 - **Button Styling:** Standalone `Contact Us` link removed. Primary CTA is **`Free Consultation`** with `#0A294D` background and white text.
+- **Clean Extensionless URLs (.html hidden):** Automatic browser address bar `.html` stripping and complete server rewrite configs (`.htaccess`, `vercel.json`, `netlify.toml`, `_redirects`, and branded `404.html`) supporting back/forward history navigation without errors.
