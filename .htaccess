@@ -1,0 +1,29 @@
+# =======================================================================
+# MedicEdu Global — Clean URLs & Routing Configuration
+# =======================================================================
+
+Options -MultiViews
+RewriteEngine On
+RewriteBase /
+
+# 1. Strip index.html from URLs
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /([^/]+/)*index\.html\ HTTP/
+RewriteRule ^(([^/]+/)*)index\.html$ /$1 [R=301,L]
+
+# 2. Redirect .html URLs to clean extensionless URLs (Browser Address Bar)
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /(.*)\.html(?:\s|\?) [NC]
+RewriteRule ^ %1 [R=301,L]
+
+# 3. Handle Clean URLs -> Serve matching .html file internally
+# Check if file.html exists in root
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^([^/]+)/?$ $1.html [L]
+
+# Check if file.html exists in subdirectories (e.g. /countries/bosnia -> /countries/bosnia.html)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{DOCUMENT_ROOT}/$1\.html -f
+RewriteRule ^(.*)$ $1.html [L]
+
+# 4. Custom Error 404 Page (prevents broken routing and white screens)
+ErrorDocument 404 /404.html

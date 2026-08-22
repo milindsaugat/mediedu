@@ -1,8 +1,29 @@
 /**
  * MedicEdu Global — Main JavaScript File
  * Powered by GSAP (GreenSock Animation Platform) + ScrollTrigger
- * Off-Canvas Mobile Drawer, Hero Slider, FAQ Accordions, and Lead Handlers
+ * Off-Canvas Mobile Drawer, Hero Slider, FAQ Accordions, and Clean URL Router
  */
+
+// 0. Clean URL Handler (Strips .html from browser address bar smoothly & manages history)
+(function initCleanUrls() {
+  try {
+    if (window.location.protocol === 'http:' || window.location.protocol === 'https:') {
+      const pathname = window.location.pathname;
+      const search = window.location.search || '';
+      const hash = window.location.hash || '';
+
+      if (pathname.endsWith('/index.html')) {
+        const cleanPath = pathname.slice(0, -10) || '/';
+        window.history.replaceState({ path: cleanPath }, document.title, cleanPath + search + hash);
+      } else if (pathname.endsWith('.html')) {
+        const cleanPath = pathname.slice(0, -5);
+        window.history.replaceState({ path: cleanPath }, document.title, cleanPath + search + hash);
+      }
+    }
+  } catch (e) {
+    // Fallback gracefully
+  }
+})();
 
 document.addEventListener('DOMContentLoaded', () => {
 

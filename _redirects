@@ -1,0 +1,14 @@
+# Netlify & Cloudflare Pages Clean URL Rewrites
+/countries/bosnia       /countries/bosnia.html       200
+/countries/serbia       /countries/serbia.html       200
+/countries/romania      /countries/romania.html      200
+/countries/russia       /countries/russia.html       200
+/countries/armenia      /countries/armenia.html      200
+/countries/kyrgyzstan   /countries/kyrgyzstan.html   200
+/countries/kazakhstan   /countries/kazakhstan.html   200
+/countries/uzbekistan   /countries/uzbekistan.html   200
+/about                  /about.html                  200
+/admission              /admission.html              200
+/countries              /countries.html              200
+/contact                /contact.html                200
+/*                      /404.html                    404
